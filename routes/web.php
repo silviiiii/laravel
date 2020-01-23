@@ -116,127 +116,34 @@ if ($umur >50 && $umur <60) {
     return $str;
    });
 
-    Route::get('/testmodel', function() {
-        $query = App\Post::find(1);
+   Route::get('/testmodel', function() {
+    $query = App\post::all();
+    return $query;
+    });
+
+    Route::get('/testmodel1', function() {
+        $query = App\post::find(1);
         return $query;
     });
 
-    Route::get('testmodel', function(){
-        $query = App\Post::where('title','like','%cepat nikah%')->get();
+    Route::get('/testmodel2', function(){
+        $query = App\post::where('title','like','%cepat nikah%')->get();
         return $query;
     });
-    Route::get('/testmodel', function(){
-        $post = App\Post::find(1);
+    Route::get('/testmodel3', function(){
+        $post = App\post::find(1);
         $post->title = "Ciri Keluarga Sakinah";
         $post->save();
         return $post;
     });
-    Route::get('/testmodel', function(){
-        $post = App\Post::find(1);
+    Route::get('/testmodel4', function(){
+        $post = App\post::find(1);
         $post->delete();
     });
-    Route::get('/testmodel', function(){
-        $post = new App\Post;
+    Route::get('/testmodel5', function(){
+        $post = new App\post;
         $post->title = "7 Amalan Pembuka Jodoh";
         $post->content = "shalat malam, sedekah, puasa sunah, silaturahmi, senyum, doa, tobat";
         $post->save();
         return $post;
     });
-    Route::get('/tes', function() {
-        $query = App\Penggajian::all();
-        return $query;
-    });
-     Route::get('/data-gaji-1',function(){
-         $query = App\Penggajian::where('jabatan','=','Direktur')->get();
-         return $query;
-     });
-     Route::get('/data-gaji-2',function(){
-        $query = App\Penggajian::select('id','nama','jabatan')
-        ->where('jabatan','=','Hrd ')
-        ->get();
-        return $query;
-    });
-    Route::get('/data-gaji/{id}',function($id){
-        $query = App\Penggajian::find($id);
-        return $query;
-    });
-    Route::get('tambah-data-gaji', function(){
-        $gaji = new App\Penggajian();
-        $gaji->nama = 'Indah Mambo';
-        $gaji->jabatan = 'Sekertaris';
-        $gaji->jk = 'perempuan';
-        $gaji->alamat = 'Bojong Honey';
-        $gaji->total_gaji = '5000000';
-        $gaji->agama = 'Islam';
-        $gaji->save();
-        return $gaji;
-    });
-
-    Route::get('haloo','SekolahController@hallo');
-
-    Route::get('haloo1','SekolahController@a');
-
-    Route::get('haloo2','SekolahController@b');
-
-    Route::get('haloo3','SekolahController@c');
-
-    Route::get('haloo4','SekolahController@d');
-
-    Route::get('haloo5','SekolahController@e');
-
-    Route::get('haloo6','SekolahController@f');
-
-    Route::get('haloo7','SekolahController@g');
-
-    Route::get('haloo8','SekolahController@h');
-
-    Route::get('warnakucing/{warna?}',function($warna=null){
-            if (isset($warna)) {
-            return" Nama Kucing kamu : ".$warna;
-        }
-        else{
-            return"Nama Kucing Kamu : ";
-        }
-    });
-
-    Route::get('/beli/{item?}/{harga?}',function($item=null,$harga=null){
-        if (isset($item)) {
-            echo"Anda Memesan : ".$item ;
-        }
-        if(isset($harga)){
-
-        if ($harga >= 15000) {
-            echo " Dengan Ukuran Jumbo Harga ".$harga;
-        }
-        elseif ($harga < 15000 && $harga >= 7500) {
-            echo " Dengan Ukuran Medium Harga ".$harga;
-        }
-        elseif($harga < 7500  && $harga >= 1000){
-            echo " Dengan Ukuran Small Harga ".$harga;
-        }
-        else{
-            echo " Maaf Anda Memasukan Digit Yang Salah ";
-        }
-    }
-        if ($item == null & $harga == null) {
-            return"Silakan Masukan Item Terlebih Dahulu : ";
-        }
-    });
-
-    Route::get('book','BookController@index');
-    Route::get('book-create/{jdl}','BookController@create');
-    Route::get('book-show/{id}','BookController@show');
-    Route::get('book-edit/{id}/{jdl}','BookController@edit');
-    Route::get('book-delete/{id}','BookController@delete');
-    Route::get('book-select','BookController@select');
-
-    //Artikel RESOURCE
-    // Route::get('artikel','ArtikelController@index');
-    // Route::get('artikel/create','ArtikelController@create');
-    // Route::get('artikel','ArtikelController@store');
-    // Route::get('artikel-show/{id}','ArtikelController@show');
-    // Route::get('artikel/{id}/edit','ArtikelController@edit');
-    // Route::PUT('artikel/{id}','ArtikelController@update');
-    // Route::DELETE('artikel/{id}','ArtikelController@story');
-
-    Route::resource('artikel','ArtikelController');

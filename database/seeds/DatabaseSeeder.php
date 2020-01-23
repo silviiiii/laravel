@@ -11,6 +11,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call(namasiswa::class);
+
+        // Data Pertama
+        // $posts = [
+        //     ['title'=>'Tips Cepat Nikah', 'content'=>'lorem ipsum'],
+        //     ['title'=>'Haruskah Menunda Nikah?', 'content'=>'lorem ipsum'],
+        //     ['title'=>'Membangun Visi Misi Keluarga', 'content'=>'lorem ipsum']
+        //     ];
+        //     // masukkan data ke database
+        //     DB::table('posts')->insert($posts);
     }
 }
