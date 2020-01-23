@@ -58,37 +58,70 @@ Route::get('/pesan/{makan}/{minum}/{harga}',function($mkn,$min,$hrg){
 });
 
 //Route Optimal Parameter
-Route::get('halo/{nama?}',function($nama='silvi'){
-    return 'Halo Nama Saya Adalah '.$nama;
+Route::get('halo/{nama?}',function($nama=''){
+    return 'Your Name is '.$nama;
 });
 
 //Route Optimal Parameter
 Route::get('pesanan/{minuman?}/{makanan?}/{harga?}',function($min=null,$mkn=null,$hrg=null){
     if (isset($min)) {
-        echo"Anda Memesan : ".$min;
+        echo"Anda Telah Memesan  ".$min;
     }
         if (isset($mkn)) {
         echo" & ".$mkn;
     }
         if (isset($hrg)) {
-        echo" Dengan Harga : ".$hrg;
+        echo" Dengan Harga $ ".$hrg;
+
     }
     if ($min == null & $mkn == null & $hrg == null) {
         echo"Anda Belum Memesan Makanan";
     }
 });
 
-Route::get('/testmodel', function() {
-    $query = App\Post::all();
-    return $query;
-    });
+   Route::get('tni/{nama?}/{bb?}/{umur?}',function($nma=null,$bb=null,$umur=null){
+    $str="Silahkan isi data terlebih dahulu";
+    if (isset($nma)) {
+       $str="Nama Anda  ".$nma;
+    }
+    if(isset($bb)){
+
+        if ($bb > 76 && $bb < 100) {
+            $str.="<br>berat badan anda :".$bb."kg, Anda harus turun berat badan ";
+        }
+        if ($bb > 65 && $bb < 75) {
+            $str.=" <br>berat badan anda :".$bb."kg, Berat badan anda ideal ";
+        }
+        if($bb > 50 && $bb <64){
+            $str.="<br>berat badan anda :".$bb."kg, naikan berat badan anda";
+        }
+        if($bb <50){
+            $str.="<br>berat badan anda :".$bb."kg, Maaf Anda kurang nutrisi ";
+        }
+    }
+    if(isset($umur)){
+        if ($umur <30) {
+            $str.="umur anda :".$umur."(tamtama)";
+    }
+    if ($umur >30 && $umur <40) {
+        $str.="<br>umur anda :".$umur."(perwira)";
+}
+if ($umur >40 && $umur <50) {
+    $str.="<br>umur anda :".$umur."(laksamana)";
+}
+if ($umur >50 && $umur <60) {
+    $str.="<br>umur anda :".$umur."(jendral)";
+}
+}
+    return $str;
+   });
 
     Route::get('/testmodel', function() {
         $query = App\Post::find(1);
         return $query;
     });
 
-    Route::get('/testmodel', function(){
+    Route::get('testmodel', function(){
         $query = App\Post::where('title','like','%cepat nikah%')->get();
         return $query;
     });
