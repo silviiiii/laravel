@@ -147,3 +147,31 @@ if ($umur >50 && $umur <60) {
         $post->save();
         return $post;
     });
+    Route::get('/tes', function() {
+        $query = App\gaji::all();
+        return $query;
+    });
+     Route::get('/data-gaji-1',function(){
+         $query = App\gaji::where('jabatan','=','Direktur')->get();
+         return $query;
+     });
+     Route::get('/data-gaji-2',function(){
+        $query = App\gaji::select('id','nama','jabatan')
+        ->first();
+        return $query;
+    });
+    Route::get('/data-gaji/{id}',function($id){
+        $query = App\gaji::find($id);
+        return $query;
+    });
+    Route::get('tambah-data-gaji/{nama}', function($nama){
+        $gaji = new App\gaji();
+        $gaji->nama = 'Indah Mambo';
+        $gaji->jabatan = 'Sekertaris';
+        $gaji->jk = 'perempuan';
+        $gaji->alamat = 'Bojong Honey';
+        $gaji->total_gaji = '5000000';
+        $gaji->agama = 'Islam';
+        $gaji->save();
+        return $gaji;
+    });

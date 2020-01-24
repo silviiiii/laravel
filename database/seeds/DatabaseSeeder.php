@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(namasiswa::class);
 
+        $this->call(Gaji::class);
+
         // Data Pertama
         // $posts = [
         //     ['title'=>'Tips Cepat Nikah', 'content'=>'lorem ipsum'],
