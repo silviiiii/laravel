@@ -175,3 +175,22 @@ if ($umur >50 && $umur <60) {
         $gaji->save();
         return $gaji;
     });
+
+    route::get('latihan/{a?}/{b?}','Latihancontroller@halo');
+    route::get('latihan1/{a?}/{b?}','Latihancontroller@kurang');
+    route::get('latihan2/{a?}/{b?}','Latihancontroller@bagii');
+    route::get('latihan3/{a?}/{b?}','Latihancontroller@kali');
+
+    route::get('/data-1','Latihancontroller@loop');
+    Route::get('data-2','Latihancontroller@data');
+
+    route::get('tabungan','Tabungancontroller@index');
+    route::get('tabungan1','Tabungancontroller@show');
+    route::get('tabungan','Tabungancontroller@store');
+    route::get('tabungan-hapus','Tabungancontroller@delete');
+
+    route::get('customer','Customercontroller@awal');
+    route::get('customer-show/{id}','Customercontroller@show');
+    route::get('customer-hapus/{id}','Customercontroller@delete');
+    route::get('customer-edit/{id?}/{code?}/{nama?}/{email?}/{country?}/{city?}/{address?}/{contact_number?}','Customercontroller@edit');
+    route::get('customer','Customercontroller@store');
