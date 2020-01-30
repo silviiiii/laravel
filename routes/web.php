@@ -193,4 +193,9 @@ if ($umur >50 && $umur <60) {
     route::get('customer-show/{id}','Customercontroller@show');
     route::get('customer-hapus/{id}','Customercontroller@delete');
     route::get('customer-edit/{id?}/{code?}/{nama?}/{email?}/{country?}/{city?}/{address?}/{contact_number?}','Customercontroller@edit');
-    route::get('customer','Customercontroller@store');
+    route::get('customer2','Customercontroller@store');
+
+    //passing data
+    route::get('pass','Practicecontroller@pass');
+    route::get('pass1','Practicecontroller@pass1');
+    route::get('pass2','Practicecontroller@pass2');
