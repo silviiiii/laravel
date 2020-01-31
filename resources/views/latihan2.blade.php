@@ -11,6 +11,18 @@
     @foreach ($tabungan as $data)
         nama : {{$data->nama}}<br>
         nis : {{$data->nis}}<br>
+        kelas : {{$data->kelas}}<br>
+        jumlah : {{$data->jml}}<br>
+        @if ($data->jml >= 50000)
+        jenis paket : paket A
+        @elseif($data->jml >= 25000)
+        jenis paket : paket B
+        @elseif($data->jml >= 10000)
+        jenis paket : paket C
+        @else
+        jenis paket :-
+        @endif
+        <hr>
     @endforeach
 </body>
 </html>

@@ -199,3 +199,11 @@ if ($umur >50 && $umur <60) {
     route::get('pass','Practicecontroller@pass');
     route::get('pass1','Practicecontroller@pass1');
     route::get('pass2','Practicecontroller@pass2');
+
+    //perpus
+    Route::get('book','Bookcontroller@index');
+    Route::get('book-create/{jdl}','Bookcontroller@create');
+    Route::get('book-show/{id}','Bookcontroller@show');
+    Route::get('book-edit/{id}/{jdl}','Bookcontroller@edit');
+    Route::get('book-delete/{id}','Bookcontroller@delete');
+    Route::get('book-select','Bookcontroller@select');
